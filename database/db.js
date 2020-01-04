@@ -4,8 +4,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root"
-  // database: "unesco"
+  password: "root",
+  database: "unesco"
 });
 
 module.exports = con;
