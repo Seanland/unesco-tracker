@@ -1,0 +1,23 @@
+{
+  "name": "unesco-tracker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "build-db": "node database/build.js",
+    "drop-db": "node database/drop-database.js",
+    "fill-db": "node database/fill-database.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.2",
+    "pug": "^2.0.4",
+    "xml2js": "^0.4.23"
+  }
+}
