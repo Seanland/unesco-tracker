@@ -19,8 +19,12 @@ Site.findById = function(id, callback){
 
   con.query(sql, id, function(err, result){
     if (err) return callback(err);
-    console.log("Site.findById: " + result[0].site + " retrieved!");
-    callback(err, new Site(result[0]));
+    // if not site is found.
+    if (result[0] == undefined) callback(404);
+    else {
+      console.log("Site.findById: " + result[0].site + " retrieved!");
+      callback(err, new Site(result[0]));
+    }
   });
 };
 
