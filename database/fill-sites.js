@@ -20,17 +20,19 @@ val.query.row.forEach(function(site){
   s.push(htmlToText.fromString(htmlToText.fromString(site.short_description), { wordwrap: false }));
   s.push(site.site);
   s.push(site.unique_number);
-  // console.log(s);
+  s.push(site.image_url);
+  s.push(site.states);
+  // console.log(site);
   arr.push(s);
 });
 
-console.log(arr);
+// console.log(arr);
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  sql = "INSERT INTO sites (category, in_danger, date_inscribed, unesco_url, latitude, longitude, description, site, unesco_unique) VALUES ?";
+  sql = "INSERT INTO sites (category, in_danger, date_inscribed, unesco_url, latitude, longitude, description, site, unesco_unique, img_url, states) VALUES ?";
 
   con.query(sql, [arr], function(err, res){
     if (err) throw err;

@@ -11,6 +11,8 @@ var Site = function(data){
   this.description = data.description;
   this.site = data.site;
   this.unesco_unique = data.unesco_unique;
+  this.img_url = data.img_url
+  this.states = data.states;
 };
 
 // Finding the site by ID.

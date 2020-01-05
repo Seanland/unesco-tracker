@@ -24,6 +24,8 @@ con.connect(function(err) {
     description varchar(5000),\
     site varchar(255),\
     unesco_unique int UNIQUE,\
+    img_url varchar(255),\
+    states varchar(255),\
     PRIMARY KEY (id)\
   )", function(err, res){
     if (err) throw err;
