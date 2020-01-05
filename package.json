@@ -7,7 +7,8 @@
     "dev": "nodemon ./bin/www",
     "build-db": "node database/build.js",
     "drop-db": "node database/drop-database.js",
-    "fill-sites": "node database/fill-sites.js"
+    "fill-sites": "node database/fill-sites.js",
+    "fill-visits": "node database/fill-visits.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
