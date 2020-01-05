@@ -23,7 +23,7 @@ con.connect(function(err) {
     longitude varchar(255),\
     description varchar(5000),\
     site varchar(255),\
-    unesco_unique int,\
+    unesco_unique int UNIQUE,\
     PRIMARY KEY (id)\
   )", function(err, res){
     if (err) throw err;
