@@ -3,7 +3,7 @@ var con = require('./db');
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  con.query("CREATE DATABASE unesco", function (err, res) {
+  con.query("CREATE DATABASE unesco CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;", function (err, res) {
     if (err) throw err;
     console.log('"unesco" Database created.');
   });
