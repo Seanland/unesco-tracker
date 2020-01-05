@@ -2,9 +2,10 @@ extends layout
 
 block content
   h1= site.site
+  h3= "Date Inscribed: " + site.date_inscribed
+  h4= "Located: " + site.latitude + " " + site.longitude
+
+  h5= site.category
   .content
     p #{site.description}
-  //- p(unescaped!= #{site.description})
-  
-
   include footer.pug
