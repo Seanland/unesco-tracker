@@ -1,6 +1,7 @@
 var con = require('./db');
 var fs = require('fs');
 var parser = require('fast-xml-parser');
+var htmlToText = require('html-to-text');
 
 var string = fs.readFileSync(process.cwd() + '/data/unesco.xml', 'utf8').toString();
 
@@ -15,7 +16,8 @@ val.query.row.forEach(function(site){
   s.push(site.http_url);
   s.push(site.latitude);
   s.push(site.longitude);
-  s.push(site.short_description);
+  // Crazy that this works, but it does..
+  s.push(htmlToText.fromString(htmlToText.fromString(site.short_description), { wordwrap: false }));
   s.push(site.site);
   s.push(site.unique_number);
   // console.log(s);

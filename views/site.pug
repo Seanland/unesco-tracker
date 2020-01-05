@@ -2,6 +2,9 @@ extends layout
 
 block content
   h1= site.site
-  p #{site.description}
+  .content
+    p #{site.description}
+  //- p(unescaped!= #{site.description})
+  
 
   include footer.pug
