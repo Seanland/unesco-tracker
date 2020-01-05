@@ -30,4 +30,15 @@ Site.findById = function(id, callback){
   });
 };
 
+// get a listing of all sites
+Site.getAll = function(callback){
+  var sql = "SELECT * FROM sites";
+
+  con.query(sql, function(err, result){
+    if (err) return callback(err);
+    console.log("Site.getAll retrieved: " + result.length + "records.");
+    callback(err, result);
+  });
+}
+
 module.exports = Site;

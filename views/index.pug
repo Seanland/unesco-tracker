@@ -3,5 +3,8 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  
+  each site in sites
+    h3= site.site
 
   include footer.pug

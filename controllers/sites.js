@@ -11,5 +11,11 @@ module.exports = {
         res.render('site', { title: site.site, site: site });
       }
     });
+  },
+  getAll: function(req, res){
+    Site.getAll(function(err, sites){
+      if(err) throw err;
+      res.render('index', { title: "Home", sites: sites });
+    });
   }
 }
