@@ -1,4 +1,11 @@
-var con = require('./db');
+var mysql = require('mysql');
+
+// This information is only used for testing - change to production before deploying
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root"
+});
 
 con.connect(function(err) {
   if (err) throw err;
