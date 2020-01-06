@@ -18,7 +18,7 @@ val.query.row.forEach(function(site){
   s.push(site.longitude);
   // Crazy that this works, but it does..
   s.push(htmlToText.fromString(htmlToText.fromString(site.short_description), { wordwrap: false }));
-  s.push(site.site);
+  s.push(htmlToText.fromString(htmlToText.fromString(site.site), { wordwrap: false }));
   s.push(site.unique_number);
   s.push(site.image_url);
   s.push(site.states);
