@@ -30,6 +30,25 @@ Site.findById = function(id, callback){
   });
 };
 
+// Finding all sites by IDs.
+Site.findAllById = function(ids, callback){
+  var sql = "SELECT * FROM sites WHERE id in (?)";
+  var arr = [];
+
+  con.query(sql, [ids], function(err, result){
+    if (err) return callback(err);
+    // if not site is found.
+    if (result[0] == undefined) callback(404);
+    else {
+      console.log("Site.findAllById: " + result.length + "sites retrieved!");
+      result.forEach(site => {
+        arr.push(new Site(site));
+      });
+      callback(err, arr);
+    }
+  });
+};
+
 // get a listing of all sites
 Site.getAll = function(callback){
   var sql = "SELECT * FROM sites";

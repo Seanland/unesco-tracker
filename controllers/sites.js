@@ -1,4 +1,5 @@
 var Site = require('../model/Site');
+var Visit = require('../model/Visit');
 
 module.exports = {
   // Find site by ID export
@@ -16,6 +17,15 @@ module.exports = {
     Site.getAll(function(err, sites){
       if(err) throw err;
       res.render('index', { title: "Home", sites: sites });
+    });
+  },
+  UniqueSiteVisits: function(req, res){
+    Visit.findUniqueSites(function(err, uniqueSites){
+      if(err) throw err;
+      Site.findAllById(uniqueSites, function(err, uniqueSiteVisits){
+        if(err) throw err;
+        res.render('index', { title: "UniqueSiteVisits", sites: uniqueSiteVisits });
+      });
     });
   }
 }

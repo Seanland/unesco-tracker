@@ -20,3 +20,25 @@ Visit.findBySite = function(id, callback){
     }
   });
 };
+
+Visit.findUniqueSites = function(callback){
+  var sql = "SELECT DISTINCT site_id FROM visits";
+
+  con.query(sql, function(err, result){
+    if(err) return callback(err);
+    if(result[0] == undefined) callback(404);
+    else {
+      var ids = [];
+
+      result.forEach(id => {
+        ids.push(id.site_id);
+      });
+      console.log(ids);
+      console.log("Visit.findUniqueSites: " + ids.length + " unique sites visited!");
+
+      callback(err, ids);
+    }
+  });
+}
+
+module.exports = Visit;
