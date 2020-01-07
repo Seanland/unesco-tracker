@@ -22,7 +22,13 @@ val.query.row.forEach(function(site){
   s.push(site.unique_number);
   s.push(site.image_url);
   s.push(site.states);
-  // console.log(site);
+  // Generating a slug.
+  var slug = htmlToText.fromString(htmlToText.fromString(site.site), { wordwrap: false });
+  var punctuationless = slug.replace(/[.',\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+  var finalString = punctuationless.replace(/\s{2,}/g," ");
+  slug = finalString.toLowerCase().split(" ").join("-");
+  s.push(slug);
+  console.log(slug);
   arr.push(s);
 });
 
@@ -32,7 +38,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  sql = "INSERT INTO sites (category, in_danger, date_inscribed, unesco_url, latitude, longitude, description, site, unesco_unique, img_url, states) VALUES ?";
+  sql = "INSERT INTO sites (category, in_danger, date_inscribed, unesco_url, latitude, longitude, description, site, unesco_unique, img_url, states, slug) VALUES ?";
 
   con.query(sql, [arr], function(err, res){
     if (err) throw err;

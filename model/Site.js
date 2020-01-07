@@ -13,6 +13,7 @@ var Site = function(data){
   this.unesco_unique = data.unesco_unique;
   this.img_url = data.img_url
   this.states = data.states;
+  this.slug = data.slug;
 };
 
 // Finding the site by ID.
@@ -25,6 +26,21 @@ Site.findById = function(id, callback){
     if (result[0] == undefined) callback(404);
     else {
       console.log("Site.findById: " + result[0].site + " retrieved!");
+      callback(err, new Site(result[0]));
+    }
+  });
+};
+
+// Finding the site by slug.
+Site.findBySlug = function(slug, callback){
+  var sql = "SELECT * FROM sites WHERE slug=? limit 1";
+
+  con.query(sql, slug, function(err, result){
+    if (err) return callback(err);
+    // if not site is found.
+    if (result[0] == undefined) callback(404);
+    else {
+      console.log("Site.findBySlug: " + result[0].site + " retrieved!");
       callback(err, new Site(result[0]));
     }
   });

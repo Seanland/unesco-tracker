@@ -33,6 +33,7 @@ con.connect(function(err) {
     unesco_unique int UNIQUE,\
     img_url varchar(255),\
     states varchar(255),\
+    slug varchar(255) UNIQUE,\
     PRIMARY KEY (id)\
   )", function(err, res){
     if (err) throw err;

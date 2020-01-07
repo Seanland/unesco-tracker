@@ -13,6 +13,16 @@ module.exports = {
       }
     });
   },
+  findBySlug: function(req, res){
+    Site.findBySlug(req.params.slug, function(err, site){
+      // if(err) throw err;
+      if(err) res.render('index', { title: 'Site is not found!'});
+      else {
+        console.log("Site->Controller: findBySlug queried: " + site.site);
+        res.render('site', { title: site.site, site: site });
+      }
+    });
+  },
   getHome: function(req, res){
     Site.getAll(function(err, sites){
       Visit.findUniqueSites(function(err, uniqueSites){
