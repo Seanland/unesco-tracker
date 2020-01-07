@@ -27,7 +27,7 @@ module.exports = {
   getAll: function(req, res){
     Site.getAll(function(err, sites){
       if(err) throw err;
-      res.render('index', { title: "Home", sites: sites });
+      res.render('site-listing', { title: "All Sites", sites: sites });
     });
   },
   UniqueSiteVisits: function(req, res){
@@ -35,7 +35,7 @@ module.exports = {
       if(err) throw err;
       Site.findAllById(uniqueSites, function(err, uniqueSiteVisits){
         if(err) throw err;
-        res.render('index', { title: "UniqueSiteVisits", sites: uniqueSiteVisits });
+        res.render('site-listing', { title: "UniqueSiteVisits", sites: uniqueSiteVisits });
       });
     });
   }

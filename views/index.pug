@@ -3,10 +3,16 @@ extends layout
 block content
   h1= title
   
-  h2= "Sites Visited: " + visits.length + "/" + totalSites
+  h2= "Sites Visited: "
+    a(href="/visits") #{visits.length}
+    | /
+    a(href="/sites") #{totalSites}
+
+  - var sitesVisited = []; 
 
   h2= "Visits"
   each visit in visits
+    - sitesVisited.push(visit.id);
     h3= visit.site
     //- Commmand list of all the states
     h5 
@@ -15,16 +21,20 @@ block content
         | #{states[i]}
         if (i + 1 < states.length)
           | , 
-
+          
   h2= "Remaining"
   each site in sites
-    h3= site.site
-    //- Commmand list of all the states
-    h5 
-      - var states = site.states.split(',')
-      - for (var i = 0; i < states.length; i++)
-        | #{states[i]}
-        if (i + 1 < states.length)
-          | , 
+    if !(sitesVisited.includes(site.id))
+      h3= site.site
+      //- Commmand list of all the states
+      h5 
+        - var states = site.states.split(',')
+        - for (var i = 0; i < states.length; i++)
+          | #{states[i]}
+          if (i + 1 < states.length)
+            | , 
+    else
+      h3= "Removed!"
 
   include footer.pug
+  

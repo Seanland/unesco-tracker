@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  
+  h2= "Sites: " + sites.length
+
+  each site in sites
+    h3= site.site
+    //- Commmand list of all the states
+    h5 
+      - var states = site.states.split(',')
+      - for (var i = 0; i < states.length; i++)
+        | #{states[i]}
+        if (i + 1 < states.length)
+          | , 
+
+  include footer.pug
