@@ -18,8 +18,11 @@ module.exports = {
       // if(err) throw err;
       if(err) res.render('index', { title: 'Site is not found!'});
       else {
-        console.log("Site->Controller: findBySlug queried: " + site.site);
-        res.render('site', { title: site.site, site: site });
+        Visit.findBySite(site.id, function(err, visits){
+          if(err) res.render('index', { title: 'Site:Visits has caused an error!'});
+          console.log("Site->Controller: findBySlug queried: " + site.site);
+          res.render('site', { title: site.site, site: site, visits: visits });
+        });
       }
     });
   },

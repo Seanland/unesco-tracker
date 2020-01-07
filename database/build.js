@@ -21,7 +21,7 @@ con.connect(function(err) {
   });
 
   con.query("CREATE TABLE sites(\
-    id int NOT NULL AUTO_INCREMENT,\
+    id int NOT NULL UNIQUE,\
     category varchar(255),\
     in_danger bool,\
     date_inscribed int,\

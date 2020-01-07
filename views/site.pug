@@ -9,4 +9,16 @@ block content
   h5= site.category
   .content
     p #{site.description}
+    
+    //- - var states = visit.states.split(',')
+    //- - for (var i = 0; i < states.length; i++)
+    //-   | #{states[i]}
+    //-   if (i + 1 < states.length)
+    //-     | , 
+        
+  if visits
+    each visit in visits
+      p #{visit.date}: #{visit.img} at the site: #{visit.site_id}
+  
+  
   include footer.pug
