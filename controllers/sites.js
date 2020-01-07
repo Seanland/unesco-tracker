@@ -13,6 +13,17 @@ module.exports = {
       }
     });
   },
+  getHome: function(req, res){
+    Site.getAll(function(err, sites){
+      Visit.findUniqueSites(function(err, uniqueSites){
+        if(err) throw err;
+        Site.findAllById(uniqueSites, function(err, uniqueSiteVisits){
+          if(err) throw err;
+          res.render('index', { title: "UNESCO Tracker", visits: uniqueSiteVisits, sites: sites, totalSites: sites.length });
+        });
+      });
+    });
+  },
   getAll: function(req, res){
     Site.getAll(function(err, sites){
       if(err) throw err;

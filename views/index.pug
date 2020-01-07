@@ -2,10 +2,21 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
   
-  h2= sites.length
+  h2= "Sites Visited: " + visits.length + "/" + totalSites
 
+  h2= "Visits"
+  each visit in visits
+    h3= visit.site
+    //- Commmand list of all the states
+    h5 
+      - var states = visit.states.split(',')
+      - for (var i = 0; i < states.length; i++)
+        | #{states[i]}
+        if (i + 1 < states.length)
+          | , 
+
+  h2= "Remaining"
   each site in sites
     h3= site.site
     //- Commmand list of all the states
