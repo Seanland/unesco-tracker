@@ -13,26 +13,28 @@ block content
   h2= "Visits"
   each visit in visits
     - sitesVisited.push(visit.id);
-    h3 #[a(href="/sites/" + visit.slug) #{visit.site}]
-    //- Commmand list of all the states
-    h5 
-      - var states = visit.states.split(',')
-      - for (var i = 0; i < states.length; i++)
-        | #{states[i]}
-        if (i + 1 < states.length)
-          | , 
-          
-  h2= "Remaining"
-  each site in sites
-    if !(sitesVisited.includes(site.id))
-      h3 #[a(href="/sites/" + site.slug) #{site.site}]
+    div(class="listing")
+      h3(class="site") #[a(href="/sites/" + visit.slug) #{visit.site}]
       //- Commmand list of all the states
-      h5 
-        - var states = site.states.split(',')
+      h5(class="state") 
+        - var states = visit.states.split(',')
         - for (var i = 0; i < states.length; i++)
           | #{states[i]}
           if (i + 1 < states.length)
             | , 
+          
+  h2= "Remaining"
+  each site in sites
+    if !(sitesVisited.includes(site.id))
+      div(class="listing")
+        h3(class="site") #[a(href="/sites/" + site.slug) #{site.site}]
+        //- Commmand list of all the states
+        h5(class="state") 
+          - var states = site.states.split(',')
+          - for (var i = 0; i < states.length; i++)
+            | #{states[i]}
+            if (i + 1 < states.length)
+              | , 
     else
       //- h3= "Removed!"
 

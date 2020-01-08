@@ -4,9 +4,9 @@ block content
   h1= title
   
   h2= "Sites: " + sites.length
-
+  
   each site in sites
-    h3= site.site
+    h3 #[a(href="/sites/" + site.slug) #{site.site}]
     //- Commmand list of all the states
     h5 
       - var states = site.states.split(',')

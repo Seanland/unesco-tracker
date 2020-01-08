@@ -1,8 +1,38 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Neon Colour Variables */
+:root {
+  --neon-green: #3DFF33;
+  --neon-purple: #F433FF;
+  --neon-yellow: #F3F315;
+  --neon-orange: #FF8300;
+  --neon-blue: #6699f6;
+  --neon-red: #FF0000;
 }
 
+
+html {
+  font-family: courier, monospace;
+  color: white;
+  text-align: justify;
+  padding: 50px;
+}
+
+body {
+  background-color: black;
+}
+
+
 a {
-  color: #00B7FF;
+  color: var(--neon-green);
+  text-decoration: none;
+  /* font-weight: bold; */
+}
+
+.site {
+  margin: 8px;
+  display: inline;
+}
+
+.state {
+  margin: 0px;
+  display: inline;
 }
