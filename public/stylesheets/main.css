@@ -18,13 +18,22 @@ html {
 
 body {
   background-color: black;
+  color: white;
 }
 
 
 a {
-  color: var(--neon-green);
+  color: var(--neon-yellow);
   text-decoration: none;
   /* font-weight: bold; */
+}
+
+.remaining {
+  color: var(--neon-red);
+}
+
+.visits {
+  color: var(--neon-green);
 }
 
 .site {
@@ -37,7 +46,12 @@ a {
   display: inline;
 }
 
+h2 {
+  color: var(--neon-blue);
+}
+
 .title h1 {
+  color: var(--neon-blue);
   text-align: left;
   padding-left: 16px;
   padding-right: 16px;
@@ -45,6 +59,7 @@ a {
 }
 
 .title h2,h3 {
+  color: white;
   margin-top: 8px;
   margin-left: 36px;
 }

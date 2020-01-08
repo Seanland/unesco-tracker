@@ -11,15 +11,13 @@ block content
     - var num = (visits.length/totalSites) * 100
     - var percent = num.toFixed(2);
     h2= percent + "% Complete"
-    
 
   - var sitesVisited = []; 
-
   h2= "Visits"
   each visit in visits
     - sitesVisited.push(visit.id);
     div(class="listing")
-      h3(class="site") #[a(href="/sites/" + visit.slug) #{visit.site}]
+      h3(class="site") #[a(class="visits" href="/sites/" + visit.slug) #{visit.site}]
       //- Commmand list of all the states
       h5(class="state") 
         - var states = visit.states.split(',')
@@ -32,7 +30,7 @@ block content
   each site in sites
     if !(sitesVisited.includes(site.id))
       div(class="listing")
-        h3(class="site") #[a(href="/sites/" + site.slug) #{site.site}]
+        h3(class="site") #[a(class="remaining" href="/sites/" + site.slug) #{site.site}]
         //- Commmand list of all the states
         h5(class="state") 
           - var states = site.states.split(',')
