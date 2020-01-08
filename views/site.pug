@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= site.site
+  h1(id="title")= site.site
   img(src= site.img_url alt= site.site)
   h3= "Date Inscribed: " + site.date_inscribed
   h4= "Located: " + site.latitude + " " + site.longitude

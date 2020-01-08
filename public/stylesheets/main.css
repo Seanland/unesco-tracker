@@ -68,6 +68,6 @@ span.num {
   color: var(--neon-purple)
 }
 
-#footer {
+#title, #footer {
   text-align: center;
 }
