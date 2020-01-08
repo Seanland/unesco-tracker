@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(class='title')
+    h1= title    
+    
+  p Please use this reference sheet to coordiate your entries with the corresponding site identification number.
+
+  - var sitesVisited = []; 
+  h2= "Site References"
+  each site in sites
+    div(class="listing")
+      h3 
+        span(class='num') #{site.id}: 
+        | #{site.site}
+  
+  include footer.pug

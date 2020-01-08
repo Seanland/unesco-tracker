@@ -63,3 +63,7 @@ h2 {
   margin-top: 8px;
   margin-left: 36px;
 }
+
+span.num {
+  color: var(--neon-purple)
+}

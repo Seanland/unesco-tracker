@@ -43,6 +43,12 @@ module.exports = {
       res.render('site-listing', { title: "All Sites", sites: sites });
     });
   },
+  getReference: function(req, res){
+    Site.getAll(function(err, sites){
+      if(err) throw err;
+      res.render('reference', { title: "Reference", sites: sites });
+    });
+  },
   UniqueSiteVisits: function(req, res){
     Visit.findUniqueSites(function(err, uniqueSites){
       if(err) throw err;
