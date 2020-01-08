@@ -7,6 +7,11 @@ block content
       a(href="/visits") #{visits.length}
       | /
       a(href="/sites") #{totalSites}
+      
+    - var num = (visits.length/totalSites) * 100
+    - var percent = num.toFixed(2);
+    h2= percent + "% Complete"
+    
 
   - var sitesVisited = []; 
 
