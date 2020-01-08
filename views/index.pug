@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1(id='title')= title
-  
-  h2= "Sites Visited: "
-    a(href="/visits") #{visits.length}
-    | /
-    a(href="/sites") #{totalSites}
+  div(class='title')
+    h1= title    
+    h3= "Sites Visited: "
+      a(href="/visits") #{visits.length}
+      | /
+      a(href="/sites") #{totalSites}
 
   - var sitesVisited = []; 
 
