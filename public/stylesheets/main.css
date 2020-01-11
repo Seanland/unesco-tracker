@@ -46,7 +46,7 @@ a {
   display: inline;
 }
 
-h2 {
+h1, h2.visits {
   color: var(--neon-blue);
 }
 
@@ -68,6 +68,16 @@ span.num {
   color: var(--neon-purple)
 }
 
-#title, #sub-title, #footer {
+#title, #sub-title, #footer, h2.visits {
   text-align: center;
+}
+
+h1#title {
+  margin-bottom: 8px;
+}
+
+#sub-title h2, #sub-title h5 {
+  color: white;
+  margin: 0px;
+  padding: 0px;
 }

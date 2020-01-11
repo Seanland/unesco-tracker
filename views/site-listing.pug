@@ -6,13 +6,15 @@ block content
   h2= "Sites: " + sites.length
   
   each site in sites
-    h3 #[a(href="/sites/" + site.slug) #{site.site}]
-    //- Commmand list of all the states
-    h5 
-      - var states = site.states.split(',')
-      - for (var i = 0; i < states.length; i++)
-        | #{states[i]}
-        if (i + 1 < states.length)
-          | , 
+    div(class="listing")
+      h3(class="site") #[a(class="remaining" href="/sites/" + site.slug) #{site.site}]
+      //- Commmand list of all the states
+      h5(class="state") 
+        - var states = site.states.split(',')
+        - for (var i = 0; i < states.length; i++)
+          | #{states[i]}
+          if (i + 1 < states.length)
+            | , 
+
 
   include footer.pug

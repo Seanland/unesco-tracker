@@ -54,7 +54,7 @@ module.exports = {
       if(err) throw err;
       Site.findAllById(uniqueSites, function(err, uniqueSiteVisits){
         if(err) throw err;
-        res.render('site-listing', { title: "UniqueSiteVisits", sites: uniqueSiteVisits });
+        res.render('site-listing', { title: "Sites Visited", sites: uniqueSiteVisits });
       });
     });
   }

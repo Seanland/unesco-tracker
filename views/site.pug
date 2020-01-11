@@ -2,20 +2,23 @@ extends layout
 
 block content
   h1(id="title")= site.site
-  h3(id="sub-title")= "Date Inscribed: " + site.date_inscribed
-  img(src= site.img_url alt= site.site)
-  h4= "Located: " + site.latitude + " " + site.longitude
+  div(id="sub-title")
+    h2= site.date_inscribed
+    h5= site.latitude + " " + site.longitude
+    h5= site.category 
 
-  h5= site.category
+  
+  //- img(src= site.img_url alt= site.site)
+
   .content
     p #{site.description}
         
   if visits
-    h2= "Visits"
+    h2(class="visits")= "Visits"
     each visit in visits
       p #{visit.date}: #{visit.img} at the site: #{visit.site_id}
   else
-    h2= "This site has yet to be visited.  Soon... "
+    h2(class="visits")= "This site has yet to be visited.  Soon... "
   
   
   include footer.pug
