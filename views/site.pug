@@ -17,6 +17,7 @@ block content
     h2(class="visits")= "Visits"
     each visit in visits
       p #{visit.date}: #{visit.img} at the site: #{visit.site_id}
+      p #{visit.comment}
   else
     h2(class="visits")= "This site has yet to be visited.  Soon... "
   

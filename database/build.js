@@ -44,6 +44,7 @@ con.connect(function(err) {
     id int NOT NULL AUTO_INCREMENT,\
     date varchar(255),\
     img varchar(255),\
+    comment varchar(1000),\
     site_id int,\
     FOREIGN KEY (site_id) REFERENCES sites(id),\
     PRIMARY KEY (id)\
