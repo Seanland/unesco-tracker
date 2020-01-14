@@ -87,6 +87,8 @@ h1#title {
   margin-bottom: 32px;
   width: 400px;
   text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .site-visit img {
