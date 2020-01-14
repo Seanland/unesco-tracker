@@ -16,8 +16,11 @@ block content
   if visits
     h2(class="visits")= "Visits"
     each visit in visits
-      p #{visit.date}: #{visit.img} at the site: #{visit.site_id}
-      p #{visit.comment}
+      div(class="site-visit")
+        img(src=visit.img alt=site.site)
+        p #{visit.date}
+        p #{visit.comment}
+      
   else
     h2(class="visits")= "This site has yet to be visited.  Soon... "
   

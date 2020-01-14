@@ -81,3 +81,19 @@ h1#title {
   margin: 0px;
   padding: 0px;
 }
+
+.site-visit {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  width: 400px;
+  text-align: center;
+}
+
+.site-visit img {
+  width: 200px;
+  border-radius: 5px;
+}
+
+.site-visit p {
+  margin: 8px;
+}
